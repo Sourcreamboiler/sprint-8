@@ -3,7 +3,13 @@ package main
 import (
 	"database/sql"
 )
-
+const (
+	ParcelStatusRegistered = "registered"
+	ParcelStatusSent       = "sent"
+	ParcelStatusDelivered  = "delivered"
+	DriverName             = "sqlite"
+	DBName                 = "tracker.db"
+)
 type ParcelStore struct {
 	db *sql.DB
 }

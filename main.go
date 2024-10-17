@@ -8,14 +8,6 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-const (
-	ParcelStatusRegistered = "registered"
-	ParcelStatusSent       = "sent"
-	ParcelStatusDelivered  = "delivered"
-	DriverName             = "sqlite"
-	DBName                 = "tracker.db"
-)
-
 type Parcel struct {
 	Number    int
 	Client    int
