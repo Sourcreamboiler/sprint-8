@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 )
+
 const (
 	ParcelStatusRegistered = "registered"
 	ParcelStatusSent       = "sent"
@@ -10,6 +11,7 @@ const (
 	DriverName             = "sqlite"
 	DBName                 = "tracker.db"
 )
+
 type ParcelStore struct {
 	db *sql.DB
 }
@@ -66,6 +68,9 @@ func (s ParcelStore) GetByClient(client int) ([]Parcel, error) {
 			return res, err
 		}
 		res = append(res, p)
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
 	}
 
 	return res, nil
